@@ -22,7 +22,7 @@ public class MySet {
         arr[2] = c;
     }
 
-    public HashSet getSet() {
+    public HashSet<Point> getSet() {
          HashSet<Point> set = new HashSet<>();
          set.add(arr[0]);
          set.add(arr[1]);

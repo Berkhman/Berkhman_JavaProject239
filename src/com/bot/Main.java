@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Main {
     private static ArrayList<Point> points = new ArrayList<Point>();
@@ -14,7 +15,7 @@ public class Main {
         final JFrame frame = new JFrame("Testframe");
 	    frame.setPreferredSize(new Dimension(700,700));
 	    JPanel panel = new JPanel(new BorderLayout());
-        Panel butPanel = new Panel();
+        final Panel butPanel = new Panel();
         butPanel.setLayout(null);
         butPanel.setPreferredSize(new Dimension(250,700));
         final Panel pointpane   = new Panel();
@@ -45,6 +46,9 @@ public class Main {
         final JTextField n = new JTextField();
         n.setBounds(35,70,25,25);
         butPanel.add(n);
+        JLabel otv = new JLabel("Ответ:");
+        otv.setBounds(20,350,50,25);
+        butPanel.add(otv);
 
 
 
@@ -94,21 +98,6 @@ public class Main {
                     points2[i]=points.get(i);
                 }
 
-                for (int i = 0; i < n; i++) {  // переберем первую вершину треугольника
-                    for (int j = 0; j < n; j++) {  // переберем вторую вершину треугольника
-                        for (int h = 0; h < n; h++) {  // переберем третью вершину треугольника
-                            if (i == j || i == h || j == h) continue; // проверим, что мы выбрали три различные точки
-
-                            MySet triangle = new MySet(3, points2[i], points2[j], points2[h]); // создадим треугольник с данными тремя вершинами
-                            double square = triangle.Square(); // найдем квадрат его площади
-                            if (square > 0 && (min == -1 || min > square)) { // если треугольник не вырожденный(площадь больше нуля) и его площадь меньше, чем та что была
-                                min = square;                              // обновим значение минимальной площади
-                                answer_triangle = triangle.myCopy();       // и треугольник минимальной площади
-                            }
-                        }
-                    }
-                }
-
                 for (int i=0;i<points.size();i++){
                     while(points.size() > 0) {
                         int index = points.size() - 1;
@@ -119,7 +108,55 @@ public class Main {
                     }
                 }
 
-                points.addAll(answer_triangle.getSet());
+                for (int i = 0; i < n; i++) {  // переберем первую вершину треугольника
+                    for (int j = 0; j < n; j++) {  // переберем вторую вершину треугольника
+                        for (int h = 0; h < n; h++) {  // переберем третью вершину треугольника
+                            if (i == j || i == h || j == h) continue; // проверим, что мы выбрали три различные точки
+
+                            MySet triangle = new MySet(3, points2[i], points2[j], points2[h]); // создадим треугольник с данными тремя вершинами
+                            double square = triangle.Square(); // найдем квадрат его площади
+                            if (square > 0 && (min == -1 || min > square)) { // если треугольник не вырожденный(площадь больше нуля) и его площадь меньше, чем та что была
+                                min = square;                              // обновим значение минимальной площади
+                                answer_triangle = triangle.myCopy();
+                                HashSet <Point> hs = answer_triangle.getSet();
+                                for (Point p: hs){
+                                    points.add(p);
+                                    p.setBounds(p.x,p.y,p.x+3,p.y+3);
+                                    pointpane.add(p);
+                                    System.out.println(p);
+
+                                }
+                                pointpane.repaint();
+                                pointpane.revalidate();
+
+                                double minshort = Math.sqrt(min);
+                                System.out.print( minshort);
+                                double minshort1 = Math.round(minshort * 100) / 100;
+                                String aString = Double.toString(minshort1);
+                                final JTextField min1 = new JTextField("Ответ:");
+                                min1.setBounds(70,350,50,20);
+                                min1.setText(aString);
+                                butPanel.add(min1);
+
+                            }
+                        }
+                    }
+                }
+
+
+                //for (int i = 0; i < 3; i++) {
+        //            points.add(answer_triangle.add[i]);
+     //           }
+
+                for (int i=0;i<points.size();i++){
+                    while(points.size() > 0) {
+                        int index = points.size() - 1;
+                        Point point = points.remove(index);
+                        pointpane.remove(point);
+                        pointpane.repaint();
+                        pointpane.revalidate();
+                    }
+                }
 
              /*   for(int i = 0; i < 3; i++) {
                     points.add(answer_triangle.arr[i]);
@@ -162,5 +199,6 @@ public class Main {
                 createGUI();
             }
         });
-    }
+        JTextArea Answersquare = new JTextArea();
+}
 }
