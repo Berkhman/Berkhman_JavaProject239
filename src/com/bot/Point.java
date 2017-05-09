@@ -4,14 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by nurgalievtr.18 on 10.04.2017.
+ * Created by Евгений Берхман.
  */
 public class Point extends JPanel {
     public int x;
     public int y;
-    Point(int x, int y){
-        this.x=x;
-        this.y=y;
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     public double distance(Point a) {
@@ -19,9 +20,9 @@ public class Point extends JPanel {
     }// метод возвращающий расстояние между нашей и другой данной точкой
 
 
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
         g.setColor(Color.GREEN);
-        g.fillRect(0,0,3,3);
-        g.setColor(Color.red);
+        g.fillRect(0, 0, 3, 3);
+        g.setColor(Color.red);//настроим параметры рисуемых точек
     }
 }
