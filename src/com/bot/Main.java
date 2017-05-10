@@ -58,6 +58,15 @@ public class Main {
         final JLabel pics = new JLabel("пикс^2");
         pics.setBounds(120, 350, 50, 25);
         butPanel.add(pics);
+        final JLabel dva = new JLabel("Данную кнопку ");
+        dva.setBounds(163, 280, 200, 40);
+        butPanel.add(dva);
+        final JLabel dvaa = new JLabel("следует нажи-");
+        dvaa.setBounds(165, 300, 200, 40);
+        butPanel.add(dvaa);
+        final JLabel dvaaa = new JLabel("мать дважды");
+        dvaaa.setBounds(165, 320, 200, 40);
+        butPanel.add(dvaaa);
         // final JLabel sm = new JLabel("см^2");
         // sm.setBounds(120, 373, 50, 25);
         // butPanel.add(sm);
@@ -136,7 +145,7 @@ public class Main {
                                 pointpane.repaint();
                                 pointpane.revalidate();*/
                                 double minshort = min;
-                                double minshort1 = Math.rint(10000.0 * minshort) / 10000.0;
+                                double minshort1 = Math.round(10000.0 * minshort) / 10000.0;
                                 String aString = Double.toString(minshort1);
                                 double minshort2 = min * 0.02636 * 0.02636;//переведем пиксели квт. в сантиметры квт.
                                 double minshort3 = Math.rint(10000.0 * minshort2) / 10000.0;
