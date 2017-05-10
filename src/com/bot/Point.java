@@ -21,8 +21,8 @@ public class Point extends JPanel {
 
 
     public void paint(Graphics g) {
-        g.setColor(Color.GREEN);
-        g.fillRect(0, 0, 3, 3);
+        g.setColor(Color.BLUE);
+        g.fillRect(0, 0, 4, 4);
         g.setColor(Color.red);//настроим параметры рисуемых точек
     }
 }

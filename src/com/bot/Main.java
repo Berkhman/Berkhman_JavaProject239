@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
 /**
  * Created by Евгений Берхман.
@@ -59,9 +58,9 @@ public class Main {
         final JLabel pics = new JLabel("пикс^2");
         pics.setBounds(120, 350, 50, 25);
         butPanel.add(pics);
-        final JLabel sm = new JLabel("см^2");
-        sm.setBounds(120, 373, 50, 25);
-        butPanel.add(sm);
+        // final JLabel sm = new JLabel("см^2");
+        // sm.setBounds(120, 373, 50, 25);
+        // butPanel.add(sm);
 
 
         JButton button1 = new JButton("Добавить точку");
@@ -76,7 +75,7 @@ public class Main {
                 if ((X > 0) && (Y > 0)) {
                     Point b = new Point(X, Y);
                     points.add(b);
-                    b.setBounds(b.x, b.y, b.x + 3, b.y + 3);
+                    b.setBounds(b.x, b.y, b.x + 4, b.y + 4);
                     pointpane.add(b);
                     pointpane.revalidate();
                     pointpane.repaint();//создадим точки по заданным координатам
@@ -85,7 +84,7 @@ public class Main {
                         for (int i = 0; i < N; i++) {
                             Point b = new Point((int) (Math.random() * (frame.getWidth() - 250)), (int) (Math.random() * frame.getHeight()));
                             points.add(b);
-                            b.setBounds(b.x, b.y, b.x + 3, b.y + 3);
+                            b.setBounds(b.x, b.y, b.x + 4, b.y + 4);
                             pointpane.add(b);
                             pointpane.revalidate();
                             pointpane.repaint();//создадим точки по количеству рандомных
@@ -146,10 +145,10 @@ public class Main {
                                 min1.setBounds(70, 350, 50, 20);
                                 min1.setText(aString);
                                 butPanel.add(min1);//выведем значение мин площади в пикселях квт.
-                                final JTextField min2 = new JTextField();
-                                min2.setBounds(70, 373, 50, 20);
-                                min2.setText(bString);
-                                butPanel.add(min2);//выведем значение мин площади в сантиметрах квт.
+                                // final JTextField min2 = new JTextField();
+                                // min2.setBounds(70, 373, 50, 20);
+                                // min2.setText(bString);
+                                // butPanel.add(min2);//выведем значение мин площади в сантиметрах квт.
 
                             }
                         }
@@ -190,7 +189,7 @@ public class Main {
                     for (int i = 0; i < n; i++) {
                         points.add(new Point(in.nextInt(), in.nextInt()));//вводим сами точки и добавляем их в points
                     }
-                    /* Пример входного файла
+                    /* Пример водного файла
                     4
                     1 2
                     240 123
