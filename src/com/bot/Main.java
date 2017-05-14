@@ -31,7 +31,7 @@ public class Main {
         JLabel addPointwithCoords = new JLabel("Добавить точку по координатам");
         addPointwithCoords.setBounds(2, 2, 300, 25);
         butPanel.add(addPointwithCoords);
-        JLabel addRandomPoints = new JLabel("Добавить рандомное количество точек");
+        JLabel addRandomPoints = new JLabel("Добавить N рандомных точек");
         addRandomPoints.setBounds(2, 50, 300, 25);
         butPanel.add(addRandomPoints);
         JLabel X = new JLabel("X:");
